@@ -6,7 +6,7 @@ def main():
     url = "http://www.pythonchallenge.com/pc/def/0.html"
     number = 2**38
 
-    url.replace('0', str(number))
+    url = url.replace('0', str(number))
 
     print(url)
 
