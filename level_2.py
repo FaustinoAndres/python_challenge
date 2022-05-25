@@ -1,6 +1,3 @@
-import requests
-
-
 def main():
     """
     Level 2:
