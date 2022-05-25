@@ -13,18 +13,31 @@ def main():
 
     MESSAGE = "g fmnc wms bgblr rpylqjyrc gr zw fylb. rfyrq ufyr amknsrcpq ypc dmp. bmgle gr gl zw fylb gq glcddgagclr ylb rfyr'q ufw rfgq rcvr gq qm jmle. sqgle qrpgle.kyicrpylq() gq pcamkkclbcb. lmu ynnjw ml rfc spj. "
 
-    message_modified = MESSAGE.replace(" ", "+")
-    message_list = list(message_modified)
+    print(decrypt(MESSAGE))
+    map_decrypt = decrypt('map')
 
-    message_unencoded_list = list()
+    print(url.replace('map', map_decrypt))
+
+
+def decrypt(message):
+
+    start_abc = ord('a')
+    end_abc = ord('z')
+
+    module = end_abc - start_abc + 1
+    message_list = list(message)
+
+    message_decrypted_list = list()
     for char in message_list:
-            message_unencoded_list.append(chr(ord(char) + 2))
+        if char.isalpha():
+            new_char = chr(((ord(char) + 2 - start_abc) % module) + start_abc)
+            message_decrypted_list.append(new_char)
+        else:
+            message_decrypted_list.append(char)
 
-    message_unencoded = "".join(message_unencoded_list).replace("-", " ")
+    message_decrypted = "".join(message_decrypted_list)
 
-    print(message_unencoded)
-
-
+    return message_decrypted
 
 if __name__ == '__main__':
     main()
