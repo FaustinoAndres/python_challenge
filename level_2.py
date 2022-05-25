@@ -11,7 +11,16 @@ def main():
             - Avoid looking for spoilers.
 
     """
-    pass
+    url = "http://www.pythonchallenge.com/pc/def/ocr.html"
+
+    with open('files/file_level_2.txt', 'r') as file:
+        content = file.read()
+
+    message = [char for char in content if char.isalpha()]
+    message = ''.join(message)
+
+    url = url.replace('ocr', message)
+    print(url)
 
 
 
